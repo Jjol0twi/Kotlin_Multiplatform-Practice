@@ -41,6 +41,8 @@ kotlin {
                 implementation(compose.components.uiToolingPreview)
                 implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.androidx.lifecycle.runtime.compose)
+                // AndroidX DataStore
+                implementation(libs.androidx.datastore.preferences.core)    // preferences datastore¬
             }
         }
         val androidMain by getting {
