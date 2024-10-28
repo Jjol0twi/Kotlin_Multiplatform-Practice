@@ -41,8 +41,10 @@ kotlin {
                 implementation(compose.components.uiToolingPreview)
                 implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.androidx.lifecycle.runtime.compose)
+                // Koroutines
+                implementation(libs.kotlinx.coroutines.core)
                 // AndroidX DataStore
-                implementation(libs.androidx.datastore.preferences.core)    // preferences datastore¬
+                implementation(libs.androidx.datastore.preferences.core)    // preferences datastore
             }
         }
         val androidMain by getting {
@@ -59,7 +61,6 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
-                implementation(libs.kotlinx.coroutines.core)
             }
         }
         val iosX64Main by getting { dependsOn(iosMain) }
