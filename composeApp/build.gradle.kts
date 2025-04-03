@@ -45,27 +45,56 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 // AndroidX DataStore
                 implementation(libs.androidx.datastore.preferences.core)    // preferences datastore
+                // Koin
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
             }
         }
         val androidMain by getting {
             dependencies {
                 implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
-            }
-        }
-        val iosMain by creating {
-            dependsOn(commonMain)
-            dependencies {
+                // Koin
+                implementation(libs.koin.android)
             }
         }
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                // Koin
+                implementation(libs.koin.jvm)
+
             }
         }
-        val iosX64Main by getting { dependsOn(iosMain) }
-        val iosArm64Main by getting { dependsOn(iosMain) }
-        val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
+        val iosMain by creating {
+            dependsOn(commonMain)
+            dependencies {
+
+            }
+        }
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+            dependencies {
+                // Koin
+                implementation(libs.koin.iosx64)
+            }
+        }
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+            dependencies {
+                // Koin
+                implementation(libs.koin.iosarm64)
+
+            }
+        }
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+            dependencies {
+                // Koin
+                implementation(libs.koin.iossimulatorarm64)
+
+            }
+        }
     }
 }
 
